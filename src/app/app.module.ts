@@ -5,18 +5,19 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './componet/navbar/navbar.component';
 import { CreateActivityComponent } from './componet/activity-administration/create-activity/create-activity.component';
-import { AupdateActivityComponent } from './componet/activity-administration/aupdate-activity/aupdate-activity.component';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    CreateActivityComponent,
-    AupdateActivityComponent
+    CreateActivityComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
