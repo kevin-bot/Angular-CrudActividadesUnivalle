@@ -8,10 +8,6 @@ import {Actividad} from '../../../modelo/actividad';
 })
 export class CreateActivityComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   title: string = 'crudActividades';
 
@@ -27,18 +23,23 @@ export class CreateActivityComponent implements OnInit {
 
   modeloActividadeNew: Actividad = new Actividad();
   modeloAeditar: Actividad =  new Actividad();
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 
   addActividadNueva(): void {
-    this.arrayActividades.push(this.modeloActividadeNew);    
+    this.arrayActividades.push(this.modeloActividadeNew);
     this.modeloActividadeNew = new Actividad(); 
     this.mostrarNoptoficacion = 'Actividad Creada';
   }
 
-  cerrarNotoficacion(){
+  cerrarNotoficacion() {
     this.mostrarNoptoficacion = '';
-  }  
+  }
 
-  editarActividad(j) {    
+  editarActividad(j) {
     this.mostrarbtnGuardar = true;
     this.mostrarbtnUpdate = false;
     this.textoH2Crear_o_Actualizar = 'Actualizar Actividad';
