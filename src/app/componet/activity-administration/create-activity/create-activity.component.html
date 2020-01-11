@@ -1,4 +1,82 @@
-<div class="row " style="margin-bottom: 10px;">
+    
+    <nav class="navbar navbar-expand-lg navbar-light magin-person" style="background-color: #e3f2fd; margin-bottom: 15px;">
+
+    <a class="navbar-brand font-weight-bold mr-5 " href="#" >Univalle Caicedonia</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+      <ul class="navbar-nav mr-auto">
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Deporte
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" (click)="updateh2('Ajedrez')">Ajedrez</a>
+            <a class="dropdown-item" href="#" (click)="updateh2('Atletismo')">Atletismo</a>
+            <a class="dropdown-item" href="#" (click)="updateh2('Baloncesto')">Baloncesto</a>
+            <a class="dropdown-item" href="#" (click)="updateh2('Futbol')">Futbol</a>
+            <a class="dropdown-item" href="#" (click)="updateh2('Futbol de salon')">Futbol de salon</a>
+            <a class="dropdown-item" href="#" (click)="updateh2('Gimnasio')">Gimnasio</a>
+            <a class="dropdown-item" href="#" (click)="updateh2('Natación')">Natación</a>
+            <a class="dropdown-item" href="#" (click)="updateh2('Tenis de mesa')">Tenis de mesa</a>                   
+            <a class="dropdown-item" href="#" (click)="updateh2('Voleibol')">Voleibol</a>          
+            <a class="dropdown-item" href="#" (click)="updateh2('Parque recreacional')">Parque recreacional</a>
+            
+            
+          </div>
+        </li>
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cultura
+          </a>
+  
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" (click)="updateh2('Artes pláticas')">Artes pláticas</a> 
+            <a class="dropdown-item" href="#" (click)="updateh2('Danza')">Danza</a>       
+            <a class="dropdown-item" href="#" (click)="updateh2('Música')">Música</a>
+            <a class="dropdown-item" href="#" (click)="updateh2('Teatro')">Teatro</a>                               
+          </div>
+  
+        </li>
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Éxito Académico
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" (click)="updateh2('Monitoria')">Monitoria</a>
+            <a class="dropdown-item" href="#" (click)="updateh2('Jovenes en acción')">Jovenes en acción</a>          
+            <a class="dropdown-item" href="#" (click)="updateh2('Casa estudiantil')">Casa estudiantil</a>
+            <a class="dropdown-item" href="#" (click)="updateh2('Bono estudiantil')">Bono estudiantil</a>       
+            <a class="dropdown-item" href="#" (click)="updateh2('Apollo res 050')">Apollo res 050</a>       
+            <a class="dropdown-item" href="#" (click)="updateh2('Cafetria')">Cafetria</a>   
+            <a class="dropdown-item" href="#" (click)="updateh2('Genracion E')">Genracion E</a>     
+            <a class="dropdown-item" href="#" (click)="updateh2('Revición DDHH')">Revición DDHH</a>             
+          </div>
+        </li>
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Diversidad y Género
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" (click)="updateh2('Comunidades étnias')">Comunidades étnias</a>
+            <a class="dropdown-item" href="#" (click)="updateh2('Género')">Género</a>          
+          </div>
+        </li>
+  
+        
+      </ul>
+      
+    </div>
+    </nav>
+
+    <div class="row " style="margin-bottom: 10px;">
 
   <div class="col-sm-10 text-center">
 
@@ -10,14 +88,14 @@
 
       <div class="alert alert-success alert-dismissable" *ngIf="mostrarNoptoficacion">
 
-       <a href="#" class="close" >&times;</a> <!--(click)="cerrarNotoficacion()"-->
-        Notification
-
+      <a href="#" class="close" >&times;</a> <!--(click)="cerrarNotoficacion()"-->
+          {{mostrarNoptoficacion}}
       </div>
 
   </div>
 
-</div>
+    </div>
+
     <div class="row" [hidden]="mostrarbtnGuardar">
 
       <div class="col-sm-4 ">
@@ -25,8 +103,22 @@
       </div>
 
       <div class="col-sm-8 ">
-      <h2>Crear Actividad</h2>
+      <h2>{{subtitleh2}}</h2>
           <form  class="form-horizontal">
+
+              <div class="form-group">
+
+                  <label for="categoria" class="control-label col-sm-2">
+                    <strong>Categoria:</strong>
+                  </label>
+                  
+                  <div class="col-sm-10">
+
+                    <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Categoria" disabled
+                            [(ngModel)] = "modeloActividadeNew.categoria">
+                  </div>
+                                                    
+              </div>
 
               <div class="form-group">
 
@@ -36,7 +128,7 @@
                   
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ingrese el título de la actividad"
-                            [(ngModel)] = "modeloActividadeNew.titulo">
+                            [(ngModel)] = "modeloActividadeNew.titulo" >
                   </div>
                                                     
               </div>

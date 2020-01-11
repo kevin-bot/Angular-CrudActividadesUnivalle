@@ -8,8 +8,10 @@ import {Actividad} from '../../../modelo/actividad';
 })
 export class CreateActivityComponent implements OnInit {
 
+  mostrarNoptoficacion = 'Text here';
 
-  title: string = 'crudActividades';
+  navbarselectect = '';
+  subtitleh2: string = 'Crear Actividad ' ;
   mostrarbtnUpdate: boolean = true;
   mostrarbtnGuardar: boolean = false;
   mostrarForActualiza: boolean = true;
@@ -23,11 +25,15 @@ export class CreateActivityComponent implements OnInit {
   ngOnInit() {
   }
 
+  updateh2(actividad: string) {
+    this.subtitleh2 = 'Crear Actividad ' + actividad;
+    this.modeloActividadeNew.categoria = actividad;
+  }
 
   addActividadNueva(): void {
-    this.arrayActividades.push(this.modeloActividadeNew);
-    this.modeloActividadeNew = new Actividad();
-    }
+      this.arrayActividades.push(this.modeloActividadeNew);
+      this.modeloActividadeNew = new Actividad();
+  }
 
   editarActividad(j) {
     this.mostrarbtnGuardar = true;

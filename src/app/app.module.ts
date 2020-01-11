@@ -3,16 +3,14 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './componet/navbar/navbar.component';
 import { CreateActivityComponent } from './componet/activity-administration/create-activity/create-activity.component';
 import { AppRoutingModule } from './app-routing.module';
+import { Error404Component } from './componet/error404/error404.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    CreateActivityComponent
+    AppComponent,    CreateActivityComponent, Error404Component
   ],
   imports: [
     BrowserModule,

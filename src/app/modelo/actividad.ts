@@ -6,5 +6,5 @@ export class Actividad {
     fecha: Date;
     hora: string;
     lugar: string;
-
+    categoria: string;
 }
