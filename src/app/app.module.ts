@@ -15,11 +15,12 @@ import { AppComponent } from './app.component';
 import { CreateActivityComponent } from './componet/activity-administration/create-activity/create-activity.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Error404Component } from './componet/error404/error404.component';
+import { TodoFormComponent } from './componet/todo-form/todo-form.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,    CreateActivityComponent, Error404Component
+    AppComponent,    CreateActivityComponent, Error404Component, TodoFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +32,7 @@ import { Error404Component } from './componet/error404/error404.component';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [TodoFormComponent]
 })
 export class AppModule { }

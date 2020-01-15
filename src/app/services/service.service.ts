@@ -10,13 +10,24 @@ export class ServiceService {
 
   constructor(private db: AngularFirestore) { }
 
-  private todoCollectionName = 'todos';
+  private todoCollectionName = 'myactividades';
 
-  getActivity(): Observable<firebase.firestore.QuerySnapshot> {
+  getTodos(): Observable<firebase.firestore.QuerySnapshot> {
     return this.db.collection<Actividad>(this.todoCollectionName, ref => ref.orderBy('lastModifiedDate', 'desc')).get();
   }
 
-  saveActivity(todo: Actividad): Promise<DocumentReference> {
+  saveTodo(todo: Actividad): Promise<DocumentReference> {
     return this.db.collection(this.todoCollectionName).add(todo);
+  }
+
+  // editTodo(todo: TodoViewModel): Promise<void>{
+    // return this.db.collection(this.todoCollectionName).doc(todo.id).update(todo);
+  // }
+
+  editTodoPartial(id: string, obj: Object): Promise<void>{
+    return this.db.collection(this.todoCollectionName).doc(id).update(obj);
+  }
+  deleteTodo(idTodo: string): Promise<void>{
+    return this.db.collection(this.todoCollectionName).doc(idTodo).delete();
   }
 }
