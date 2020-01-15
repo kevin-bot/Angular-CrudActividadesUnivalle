@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServiceService } from 'src/app/services/service.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Actividad } from 'src/app/modelo/actividad';
+import { DocumentReference } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-todo-form',
@@ -16,9 +18,12 @@ export class TodoFormComponent implements OnInit {
 
   ngOnInit() {
      this.todoForm = this.formBuilder.group({ // this todoForm is in the .html file
+        category: ['', Validators.required],
         title: ['', Validators.required], // validate the title fiels so that it is not empty
         description: ['', Validators.required], // validate the description fiels so that it is not empty
-        done: false // the fiels done is not being validate
+        date: ['', Validators.required],
+        time: ['', Validators.required],
+        place: ['', Validators.required],
      });
   }
   saveTodo() {
@@ -27,15 +32,15 @@ export class TodoFormComponent implements OnInit {
       return;
     }
 
-    let todo: Todo = this.todoForm.value;
-    todo.lastModifiedDate = new Date();
-    todo.createDate = new Date();
-    this.todoService.saveTodo(todo)
-          .then(response => this.handleSuccessfulSaveTodo(response, todo))
+    let activity: Actividad = this.todoForm.value;
+    activity.lastModifiedDate = new Date();
+    activity.createDate = new Date();
+    this.todoService.saveTodo(activity)
+          .then(response => this.handleSuccessfulSaveTodo(response, activity))
           .catch(err => console.error(err));
   }
 
-  handleSuccessfulSaveTodo(response: DocumentReference, todo: Todo){
-    this.activeModal.dismiss({ todo: todo, id: response.id});
+  handleSuccessfulSaveTodo(response: DocumentReference , activity: Actividad){
+    this.activeModal.dismiss({ activity: activity, id: response.id});
   }
 }

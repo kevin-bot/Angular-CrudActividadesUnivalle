@@ -7,4 +7,6 @@ export class Actividad {
     hora: string;
     lugar: string;
     categoria: string;
+    createDate: Date;
+    lastModifiedDate: Date;
 }
