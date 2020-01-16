@@ -16,11 +16,10 @@ export class TodoFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, public activeModal: NgbActiveModal,
               private todoService: ServiceService) { }
 
-  @Input() categorySelect = 'Deporte';
+  @Input() categorySelect = '¿?';
   
   ngOnInit() {
      this.todoForm = this.formBuilder.group({ // this todoForm is in the .html file
-        category: [this.categorySelect, Validators.required],
         title: ['', Validators.required], // validate the title fiels so that it is not empty
         description: ['', Validators.required], // validate the description fiels so that it is not empty
         date: ['', Validators.required],
@@ -37,13 +36,15 @@ export class TodoFormComponent implements OnInit {
     if (this.todoForm.invalid) {
       return;
     }
-
-    let activity: Actividad = this.todoForm.value;
-    activity.lastModifiedDate = new Date();
-    activity.createDate = new Date();
-    this.todoService.saveTodo(activity)
-          .then(response => this.handleSuccessfulSaveTodo(response, activity))
-          .catch(err => console.error(err));
+    if (this.categorySelect !== '¿?') {
+      let activity: Actividad = this.todoForm.value;
+      activity.lastModifiedDate = new Date();
+      activity.createDate = new Date();
+      activity.categoria = this.categorySelect;
+      this.todoService.saveTodo(activity)
+            .then(response => this.handleSuccessfulSaveTodo(response, activity))
+            .catch(err => console.error(err));
+    } else {alert('Seleccione una Categoria de (Deporte,Cultura, Éxito Académico o Diversidad)')}
   }
 
   handleSuccessfulSaveTodo(response: DocumentReference , activity: Actividad){
