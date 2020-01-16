@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServiceService } from 'src/app/services/service.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -16,15 +16,21 @@ export class TodoFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, public activeModal: NgbActiveModal,
               private todoService: ServiceService) { }
 
+  @Input() categorySelect = 'Deporte';
+  
   ngOnInit() {
      this.todoForm = this.formBuilder.group({ // this todoForm is in the .html file
-        category: ['', Validators.required],
+        category: [this.categorySelect, Validators.required],
         title: ['', Validators.required], // validate the title fiels so that it is not empty
         description: ['', Validators.required], // validate the description fiels so that it is not empty
         date: ['', Validators.required],
         time: ['', Validators.required],
         place: ['', Validators.required],
      });
+  }
+
+  public setCategory(category) {
+    this.categorySelect = category;
   }
   saveTodo() {
     // validate the form
