@@ -1,99 +1,42 @@
 
+
 <div class="row app">
+
   <div class="col-sm-2">
     <img  width="150"  alt="Angular Logo" src="../../../../assets/univallecaicedonia.jpg" />
   </div>
   <div class="col-sm-10">
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd; margin-bottom: 15px;">
-
-      <a class="navbar-brand font-weight-bold mr-5 " href="#" >Univalle Caicedonia</a>
-    
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      
-          <ul class="navbar-nav mr-auto">
-      
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Deporte
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#" >Ajedrez</a>
-                <a class="dropdown-item" href="#" >Atletismo</a>
-                <a class="dropdown-item" href="#" >Baloncesto</a>
-                <a class="dropdown-item" href="#" >Futbol</a>
-                <a class="dropdown-item" href="#" >Futbol de salon</a>
-                <a class="dropdown-item" href="#" >Gimnasio</a>
-                <a class="dropdown-item" href="#" >Natación</a>
-                <a class="dropdown-item" href="#" >Tenis de mesa</a>                   
-                <a class="dropdown-item" href="#" >Voleibol</a>          
-                <a class="dropdown-item" href="#" >Parque recreacional</a>
-                
-                
-              </div>
-            </li>
-      
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Cultura
-              </a>
-      
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#" >Artes pláticas</a> 
-                <a class="dropdown-item" href="#" >Danza</a>       
-                <a class="dropdown-item" href="#" >Música</a>
-                <a class="dropdown-item" href="#" >Teatro</a>                               
-              </div>
-      
-            </li>
-      
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Éxito Académico
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#" >Monitoria</a>
-                <a class="dropdown-item" href="#" >Jovenes en acción</a>          
-                <a class="dropdown-item" href="#" >Casa estudiantil</a>
-                <a class="dropdown-item" href="#" >Bono estudiantil</a>       
-                <a class="dropdown-item" href="#" >Apollo res 050</a>       
-                <a class="dropdown-item" href="#" >Cafetria</a>   
-                <a class="dropdown-item" href="#" >Genracion E</a>     
-                <a class="dropdown-item" href="#" >Revición DDHH</a>             
-              </div>
-            </li>
-      
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Diversidad y Género
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#" >Comunidades étnias</a>
-                <a class="dropdown-item" href="#" >Género</a>          
-              </div>
-            </li>
-      
-            
-          </ul>
-          
-        </div>
-      </nav>
-  </div>
-  
+      <a href="#" class="btn btn-primary btn-lg" (click) = "clickAddTodo()">Nueva actividad</a>
+  </div>    
 </div>
 
-<div class="row app">
-
-  <div class="col-sm-2">
-
+<div class="row">
+  <div class="col-sm-12">
+    <h2 class="text-center">Lista de Actividades</h2>
   </div>
-  <div class="col-sm-10">
-      <a href="#" class="btn btn-primary" (click) = "clickAddTodo()">Nueva actividad</a>
+
+  <div class="col-sm-12">
+    <table class="table table-bordered mt" *ngIf = "activities && activities.length > 0">
+      <thead>
+        <tr>
+          <th scope="col">Titulo</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Lugar,fecha y hora</th>
+          <th scope="col">Acciones</th>  
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let i of activities, let index = index">
+          <td>{{i.titulo}}</td>
+          <td>{{i.descripcion}}</td>
+          <td>{{i.lugar}}, {{i.fecha}}, {{i.hora}}</td>   
+          <td>
+            <a href="#" class="btn btn-primary " (click)="editActivity(i)">Editar</a>
+          </td>       
+        </tr>        
+      </tbody>
+    </table>
   </div>
-  
 </div>
 
 

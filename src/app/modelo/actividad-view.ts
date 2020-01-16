@@ -1,6 +1,5 @@
-import { Time } from '@angular/common';
-
-export class Actividad {
+export class ActividadView {
+    id: string;
     titulo: string;
     descripcion: string;
     fecha: Date;
