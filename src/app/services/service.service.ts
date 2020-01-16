@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Actividad } from '../modelo/actividad';
+import { ActividadView } from '../modelo/actividad-view';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,9 @@ export class ServiceService {
     return this.db.collection(this.todoCollectionName).add(todo);
   }
 
-  // editTodo(todo: TodoViewModel): Promise<void>{
-    // return this.db.collection(this.todoCollectionName).doc(todo.id).update(todo);
-  // }
+   editTodo(todo: ActividadView): Promise<void>{
+     return this.db.collection(this.todoCollectionName).doc(todo.id).update(todo);
+   }
 
   editTodoPartial(id: string, obj: Object): Promise<void>{
     return this.db.collection(this.todoCollectionName).doc(id).update(obj);

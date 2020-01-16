@@ -7,8 +7,36 @@
   </div>
   <div class="col-sm-10">
       <a href="#" class="btn btn-primary btn-lg" (click) = "clickAddTodo()">Nueva actividad</a>
+  </div>    
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h2 class="text-center">Lista de Actividades</h2>
   </div>
-  
+
+  <div class="col-sm-12">
+    <table class="table table-bordered mt" *ngIf = "activities && activities.length > 0">
+      <thead>
+        <tr>
+          <th scope="col">Titulo</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Lugar,fecha y hora</th>
+          <th scope="col">Acciones</th>  
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let i of activities, let index = index">
+          <td>{{i.titulo}}</td>
+          <td>{{i.descripcion}}</td>
+          <td>{{i.lugar}}, {{i.fecha}}, {{i.hora}}</td>   
+          <td>
+            <a href="#" class="btn btn-primary " (click)="editActivity(i)">Editar</a>
+          </td>       
+        </tr>        
+      </tbody>
+    </table>
+  </div>
 </div>
 
 

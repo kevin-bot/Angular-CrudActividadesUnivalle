@@ -6,7 +6,7 @@
 
       <div class="modal-header">
 
-          <h4 class="modal-title">Crear Actividad de {{categorySelect}}</h4>
+          <h4 class="modal-title">{{createMode ? 'Create': 'Edit'}} Actividad de {{categorySelect}}</h4>
 
           <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
@@ -95,34 +95,34 @@
           <form [formGroup]="todoForm" (ngSubmit)="saveTodo()">
             
             <div class="form-group">
-              <label for="title"><strong>Titulo*</strong></label>
-              <input type="text" id="title" placeholder="Ingrese el titulo de la actividad" class="form-control" formControlName="title" />                
-              <span style="color:Red;" *ngIf="todoForm.controls['title'].touched && todoForm.controls['title'].errors?.required">El titulo es requerido</span>
+              <label for="titulo"><strong>Titulo*</strong></label>
+              <input type="text" id="titulo" placeholder="Ingrese el titulo de la actividad" class="form-control" formControlName="titulo" />                
+              <span style="color:Red;" *ngIf="todoForm.controls['titulo'].touched && todoForm.controls['titulo'].errors?.required">El titulo es requerido</span>
             </div>
 
             <div class="form-group">
-              <label for="description"><strong>Descripcion*</strong></label>
-              <textarea  id="description" placeholder="Ingrese la descripcion de la actividad" class="form-control" formControlName="description"></textarea>
+              <label for="descripcion"><strong>Descripcion*</strong></label>
+              <textarea  id="descripcion" placeholder="Ingrese la descripcion de la actividad" class="form-control" formControlName="descripcion"></textarea>
               <span style="color:Red;" 
-                    *ngIf="todoForm.controls['description'].touched && todoForm.controls['description'].errors?.required">La descripcion es requerida</span>
+                    *ngIf="todoForm.controls['descripcion'].touched && todoForm.controls['descripcion'].errors?.required">La descripcion es requerida</span>
             </div>
 
             <div class="form-group">
-              <label for="date"><strong>Fecha de la actividad*</strong></label>
-              <input type="date" id="date" placeholder="Ingrese la fecha de la actividad" class="form-control" formControlName="date" />                
-              <span style="color:Red;" *ngIf="todoForm.controls['date'].touched && todoForm.controls['date'].errors?.required">La fecha es requerido</span>
+              <label for="fecha"><strong>Fecha de la actividad*</strong></label>
+              <input type="date" id="fecha" placeholder="Ingrese la fecha de la actividad" class="form-control" formControlName="fecha" />                
+              <span style="color:Red;" *ngIf="todoForm.controls['fecha'].touched && todoForm.controls['fecha'].errors?.required">La fecha es requerido</span>
             </div>
 
             <div class="form-group">
-              <label for="time"><strong>Hora de la actividad*</strong></label>
-              <input type="time" id="time" placeholder="Ingrese la hora de la actividad" class="form-control" formControlName="time" />                
-              <span style="color:Red;" *ngIf="todoForm.controls['time'].touched && todoForm.controls['time'].errors?.required">La hora es requerido</span>
+              <label for="hora"><strong>Hora de la actividad*</strong></label>
+              <input type="time" id="hora" placeholder="Ingrese la hora de la actividad" class="form-control" formControlName="hora" />                
+              <span style="color:Red;" *ngIf="todoForm.controls['hora'].touched && todoForm.controls['hora'].errors?.required">La hora es requerido</span>
             </div>      
 
             <div class="form-group">
-              <label for="place"><strong>Lugar de la actividad*</strong></label>
-              <input type="text" id="place" placeholder="Ingrese el lugar de la actividad" class="form-control" formControlName="place" />                
-              <span style="color:Red;" *ngIf="todoForm.controls['place'].touched && todoForm.controls['place'].errors?.required">El lugar es requerido</span>
+              <label for="lugar"><strong>Lugar de la actividad*</strong></label>
+              <input type="text" id="lugar" placeholder="Ingrese el lugar de la actividad" class="form-control" formControlName="lugar" />                
+              <span style="color:Red;" *ngIf="todoForm.controls['lugar'].touched && todoForm.controls['lugar'].errors?.required">El lugar es requerido</span>
             </div>   
             
           </form>
